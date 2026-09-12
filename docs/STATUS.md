@@ -1,5 +1,11 @@
 # 진행 상태
 
+## 게시 확인
+
+- 공개 저장소 https://github.com/dontrustjustverify/justverify 에 전체 소스와 영어/한국어/일본어 README를 게시했다. 첫 공개 snapshot df1535dbb66f92faf6df00f0521ec5981e4d0b10, 원본 작업 tree ea5da508979fdbf6c37a3c1c8b457c1c64eaad78. 후속 문서는 같은 main에 반영한다.
+- 공개 사본1396파일의 개인키/GitHub token 패턴 및 주요 README·설치·빌드 상대 링크 검사 PASS. 개발자 Git 이력·.state·캐시·시험 디스크·.DS_Store 제외. GitHub UI와 API에서 올바른 계정/public/main 및 README 렌더링을 확인했다. 사용자 승인된 CLI 인증을 사용했고 암호를 소스나 이미지에 기록하지 않았다.
+- 이미지 원본·소스·검증 결과·설치/복구·체크섬·실험용 서명은 dist의 같은 beta1 이름으로 묶는다. 공개 GitHub 소스와 로컬 설치 이미지 전달을 구분하며, 전체 OS 바이너리의 공개 배포 및 최종 안정판 수용 판정은 아직 아니다.
+
 ## 현재 — beta1 이미지 검증·소스 게시 준비
 
 - 요청한 원형 BTC favicon, 전체 문구, 글자색 계층, 내장 멤풀3006 및 한·영·일 README 완성. 제품 최종 소스6f7f7e1, ARM 앱bd4296a. 이후 변경은 시험·문서다.
