@@ -1,5 +1,13 @@
 # 진행 상태
 
+## 최종 전달 체크포인트 — 0.1.0-beta1
+
+- GitHub main 게시 및 `v0.1.0-beta1` 소스 태그 검증 완료. 태그 commit0ec74bc1a4f0cca146cdd98cf77a46ef034d63f8. 후속 main 변경은 전달 결과 기록뿐이다. GitHub의 영어/한국어/일본어 README bytes가 로컬과 각각 동일함을 API로 대조했다.
+- dist의 `justverify-0.1.0-beta1.img.xz`, source.tar.gz, mempool-source.tar.gz, manifest/test-report/size-audit/package inventory 및 설치·복구·3개 언어 안내14파일을 SHA256SUMS와 실험용 서명으로 검증 완료. 별도 빈 GPG keyring에 공개키만 가져온 검증도 PASS. evidence/beta1-bundle.json.
+- 압축654,231,760bytes(624MiB), raw6,444,548,096bytes. `justverify-0.1.0-beta1-manifest.json`과 서명된 SHA256SUMS가 전달 파일의 기준이다. 처음 실패한47e38af2 이미지와 부팅한 clone은 전달 대상이 아니다.
+- 실제 regtest Core22.0/31.1 거래·멤풀 및 이미지 복구/재부팅/Tor 연결 검증 범위는 PASS. 최초 cold Tor timeout, 새 beta1 Pi/물리 지갑/기존 S4 미완료 기준은 유지. 최종 안정판 또는 전체 정상작동 확인 완료라고 보고하지 않는다.
+- 시험 QEMU와 NBD/임시 웹·SSH forward는 종료했다. 기존 builder와 Pi dev16/mainnet 데이터는 보존. 다음은 Pi 정상 종료 후 지정 NVMe를 Mac으로 이동하여 Etcher 기록·검증, 새 beta1 실제 Pi 부팅·연결 검증이다. 장치 이동 전에는 포맷·셧다운·기록을 실행하지 않았다.
+
 ## 게시 확인
 
 - 공개 저장소 https://github.com/dontrustjustverify/justverify 에 전체 소스와 영어/한국어/일본어 README를 게시했다. 첫 공개 snapshot df1535dbb66f92faf6df00f0521ec5981e4d0b10, 원본 작업 tree ea5da508979fdbf6c37a3c1c8b457c1c64eaad78. 후속 문서는 같은 main에 반영한다.
