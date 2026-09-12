@@ -1,0 +1,16 @@
+   Compiling typenum v1.20.1
+   Compiling cpufeatures v0.2.17
+   Compiling generic-array v0.14.7
+   Compiling block-buffer v0.10.4
+   Compiling crypto-common v0.1.7
+   Compiling digest v0.10.7
+   Compiling sha2 v0.10.9
+   Compiling justverify v0.1.0 (/Users/aspen/Projects/bitcoin_node)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 3.14s
+     Running tests/policy_integration.rs (target/debug/deps/policy_integration-205f26228177ea11)
+
+running 1 test
+test real_policy_apply_and_rollback ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 4.37s
+
