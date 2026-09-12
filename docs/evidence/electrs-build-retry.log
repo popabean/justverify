@@ -1,5 +1,0 @@
-   Compiling bindgen v0.69.5
-   Compiling rust-librocksdb-sys v0.32.0+9.10.0
-   Compiling rust-rocksdb v0.36.0
-   Compiling electrs v0.11.1 (/Users/aspen/Projects/bitcoin_node/.cache/electrs-0.11.1)
-    Finished `release` profile [optimized] target(s) in 2m 34s

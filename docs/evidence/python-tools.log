@@ -1,8 +1,0 @@
-Collecting pycdlib==1.14.0
-  Downloading pycdlib-1.14.0-py2.py3-none-any.whl.metadata (992 bytes)
-Downloading pycdlib-1.14.0-py2.py3-none-any.whl (213 kB)
-Installing collected packages: pycdlib
-Successfully installed pycdlib-1.14.0
-
-[notice] A new release of pip is available: 26.2 -> 26.2.1
-[notice] To update, run: /Users/aspen/Projects/bitcoin_node/.cache/tools-venv/bin/python3.13 -m pip install --upgrade pip
