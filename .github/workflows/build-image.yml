@@ -2,6 +2,9 @@ name: Build JustVerify image (feasibility)
 
 on:
   workflow_dispatch:
+  push:
+    branches:
+      - ci/arm64-runner-probe
 
 jobs:
   build:
