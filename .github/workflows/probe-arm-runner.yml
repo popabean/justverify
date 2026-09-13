@@ -1,0 +1,42 @@
+name: Probe ARM64 runner for image build feasibility
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - ci/arm64-runner-probe
+
+jobs:
+  probe:
+    runs-on: ubuntu-24.04-arm
+    steps:
+      - name: Architecture and CPU
+        run: |
+          uname -sm
+          nproc
+          free -h
+
+      - name: Disk space
+        run: |
+          df -h
+          df -h /var/tmp
+
+      - name: Loop device availability
+        run: |
+          sudo modprobe loop || true
+          losetup --find
+          ls -l /dev/loop-control
+
+      - name: Loop-mount smoke test
+        run: |
+          fallocate -l 256M /tmp/test.img
+          loop=$(sudo losetup --find --show /tmp/test.img)
+          echo "attached: $loop"
+          sudo mkfs.ext4 -q "$loop"
+          mountdir=$(mktemp -d)
+          sudo mount "$loop" "$mountdir"
+          sudo mount --rbind /dev "$mountdir/dev"
+          echo hello | sudo tee "$mountdir/hello.txt"
+          sudo umount -R "$mountdir"
+          sudo losetup -d "$loop"
+          echo "loop-mount smoke test OK"
