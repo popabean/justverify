@@ -1,0 +1,41 @@
+name: Build JustVerify image (feasibility)
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-24.04-arm
+    timeout-minutes: 350
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Run docs/BUILD.md pipeline inside Debian 13 (privileged)
+        run: |
+          docker run --rm --privileged \
+            -e JV_TAG="ci-${{ github.run_id }}" \
+            -v "${{ github.workspace }}":/repo \
+            -w /repo \
+            debian:trixie \
+            bash .github/scripts/ci-build-image.sh
+
+      - name: Upload build state and logs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-state-${{ github.run_id }}
+          path: .state/build-guide/**
+          retention-days: 3
+          if-no-files-found: ignore
+
+      - name: Upload image
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: justverify-image-${{ github.run_id }}
+          path: |
+            dist/*.img.xz
+            dist/*-SHA256SUMS
+            dist/os-packages.tsv
+          retention-days: 3
+          if-no-files-found: ignore
