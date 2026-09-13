@@ -13,14 +13,14 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Run docs/BUILD.md pipeline inside Debian 13 (privileged)
+      - name: Run scripts/build_image.sh inside Debian 13 (privileged)
         run: |
           docker run --rm --privileged \
-            -e JV_TAG="ci-${{ github.run_id }}" \
+            -e JV_REPO=/repo \
             -v "${{ github.workspace }}":/repo \
             -w /repo \
             debian:trixie \
-            bash .github/scripts/ci-build-image.sh
+            bash scripts/build_image.sh "ci-${{ github.run_id }}"
 
       - name: Upload build state and logs
         if: always()
