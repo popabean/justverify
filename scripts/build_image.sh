@@ -30,6 +30,10 @@ test "$(uname -sm)" = "Linux aarch64"
 test "$(. /etc/os-release; echo "$VERSION_ID")" = "13"
 $SUDO -v || true
 
+# A bind-mounted checkout (CI's JV_REPO) is owned by a different uid than
+# whoever runs this script, which git's ownership check refuses by default.
+git config --global --add safe.directory '*'
+
 echo "== [1/6] apt packages =="
 export DEBIAN_FRONTEND=noninteractive
 $SUDO apt-get update
