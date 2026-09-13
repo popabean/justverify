@@ -35,6 +35,7 @@ jobs:
           sudo mkfs.ext4 -q "$loop"
           mountdir=$(mktemp -d)
           sudo mount "$loop" "$mountdir"
+          sudo mkdir -p "$mountdir/dev"
           sudo mount --rbind /dev "$mountdir/dev"
           echo hello | sudo tee "$mountdir/hello.txt"
           sudo umount -R "$mountdir"
